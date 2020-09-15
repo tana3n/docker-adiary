@@ -1,0 +1,13 @@
+version: '2'
+services:
+  nginx:
+    build:
+      context: nginx
+      dockerfile: Dockerfile
+    container_name: nginx-adiary
+    ports: 
+      - "8888:80"
+    volumes:
+      - ./adiary/data:/var/www/html/adiary/data
+      - ./adiary/pub:/var/www/html/adiary/pub
+      - ./nginx/conf.d:/etc/nginx/conf.d/
